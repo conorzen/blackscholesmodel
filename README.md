@@ -45,6 +45,8 @@ uv pip install -r requirements.txt
 
 example output for compound_interest_calculator
 
-(compound_interest.png)
 
-Thanks
+![Chart showing compounding growth](compound_interest.png)
+
+Thanks.
+
