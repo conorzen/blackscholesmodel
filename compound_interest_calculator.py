@@ -7,7 +7,7 @@ import seaborn as sns
 
 def main(): 
 
-    print("Welcome to the Black Scholes price calculator")
+    print("Welcome to the compound interest calculator")
     print("="*100)
     print("""
         When you run your function, you’re calculating the compounding interest based on a certain time period.
