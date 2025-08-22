@@ -34,6 +34,37 @@ source venv/bin/activate   # On Windows: venv\Scripts\activate
 
 uv pip install -r requirements.txt
 ```
+
+
+## 📝 Code Style Guide
+
+### Python Style
+
+We follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) with some modifications:
+
+- **Line length**: 88 characters (Black default)
+- **Docstrings**: Google style docstrings
+- **Type hints**: Required for all public functions
+- **Imports**: Organized with isort
+
+### Code Formatting
+
+We use automated tools for code formatting:
+
+```bash
+# Format code with Black
+uv run black {file}
+
+# Sort imports with isort
+uv run isort {file}
+
+# Check code style with flake8
+uv run flake8 {file}
+
+# Type checking with mypy
+ uv run mypy {file}
+```
+
 ## Author 
 
  name: conorzen
