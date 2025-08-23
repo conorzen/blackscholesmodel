@@ -1,7 +1,7 @@
 from calculator_engine import options_calculator
 
 
-def main():
+def black():
     print("Welcome to the Black Scholes price calculator")
     print("=" * 100)
     print(
@@ -36,4 +36,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    back()
