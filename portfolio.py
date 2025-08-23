@@ -11,7 +11,7 @@ open_ai_key = os.getenv("OPENAI_API_KEY")
 
 class Portfolio:
     def __init__(self):
-        self.symbols = ["IBM","QBTS"]
+        self.symbols = ["IBM", "QBTS"]
         self.time_frame = 60
 
     def get_stock(self, symbols, time_frame):
@@ -58,7 +58,7 @@ class Portfolio:
             clean_data = self.data_extract(data)
             all_dfs.append(clean_data)
             df = pl.DataFrame([all_dfs])
-            
+
             print(df)
 
         return df
