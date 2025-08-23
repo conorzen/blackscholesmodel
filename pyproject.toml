@@ -11,3 +11,21 @@ dependencies = [
     "scipy==1.16.1",
     "seaborn==0.13.2",
 ]
+[tool.black]
+line-length = 88
+target-version = ['py313']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
