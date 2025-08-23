@@ -32,7 +32,7 @@ git clone https://github.com/conorzen/blackscholesmodel.git
 uv venv
 source venv/bin/activate   # On Windows: venv\Scripts\activate
 
-uv pip install -r requirements.txt
+uv sync  # install dependancies
 ```
 
 

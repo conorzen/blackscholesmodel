@@ -11,7 +11,7 @@ open_ai_key = os.getenv("OPENAI_API_KEY")
 
 class Portfolio:
     def __init__(self):
-        self.symbols = ["IBM"]
+        self.symbols = ["IBM","QBTS"]
         self.time_frame = 60
 
     def get_stock(self, symbols, time_frame):
@@ -52,16 +52,16 @@ class Portfolio:
         }
 
     def data_clean(self):
-        all_dfs =[]
+        all_dfs = []
         for symbol in self.symbols:
             data = self.get_stock(symbol, self.time_frame)
             clean_data = self.data_extract(data)
-            df = pl.DataFrame([clean_data])
-            all_dfs.append(df)
+            all_dfs.append(clean_data)
+            df = pl.DataFrame([all_dfs])
+            
             print(df)
 
-        return all_dfs
-
+        return df
 
     def open_ai_analysis(self, df):
         client = OpenAI(api_key=open_ai_key)
@@ -70,32 +70,30 @@ class Portfolio:
 
         response = client.chat.completions.create(
             model="gpt-4",
-            messages = [
+            messages=[
                 {
                     "role": "system",
-                    "content": "You are a financial analyst. Analyse stock data and provide insights."
+                    "content": "You are a financial analyst. Analyse stock data and provide insights.",
                 },
                 {
                     "role": "user",
-                    "content": f"Analyze this stock data and provide insights: {data_str}"
-                }
+                    "content": f"Analyze this stock data and provide insights: {data_str}",
+                },
             ],
-            max_tokens=500
+            max_tokens=500,
         )
-        
+
         analysis = response.choices[0].message.content
         print("Analysis:")
         print(analysis)
         return analysis
 
-
-
     def run_analysis(self):
         dfs = self.data_clean()
-        for df in dfs:
-            self.open_ai_analysis(df)
+        # for df in dfs:
+        #     self.open_ai_analysis(df)
+
 
 if __name__ == "__main__":
     portfolio = Portfolio()
     portfolio.run_analysis()
-

@@ -1,4 +1,8 @@
+#files ignored by git
+
 *.env
 *.mypy_cache
 *.__pycache__
 *.venv
+.__pycache__
+portfolio.py 

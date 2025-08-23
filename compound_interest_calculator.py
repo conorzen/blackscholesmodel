@@ -5,7 +5,7 @@ import seaborn as sns
 from calculator_engine import CompoundingFun
 
 
-def main():
+def compound():
 
     print("Welcome to the compound interest calculator")
     print("=" * 100)
@@ -45,4 +45,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    compound()
