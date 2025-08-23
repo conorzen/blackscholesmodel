@@ -1,0 +1,37 @@
+name: Code Formatting Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  black-formatting:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        
+    - name: Install UV
+      uses: astral-sh/setup-uv@v4
+      
+    - name: Install dependencies
+      run: uv sync --dev
+        
+    - name: Check Black formatting
+      run: |
+        uv run black --check --diff .
+        
+    - name: Comment on formatting issues
+      if: failure()
+      run: |
+        echo "❌ Code is not properly formatted with Black"
+        echo "Run 'uv run black .' to fix formatting issues"
+        exit 1
