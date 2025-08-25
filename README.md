@@ -1,4 +1,4 @@
-# Financial Growth Plotting Project
+# Financial Black Scholes Options Pricing
 
 A Python project to visualize year-over-year growth of values with a plot. This project uses `polar` and `matplotlib` for data manipulation and plotting.
 
@@ -76,6 +76,8 @@ uv run flake8 {file}
 
 example output for compound_interest_calculator
 
+
 ![Chart showing compounding growth](compound_interest.png)
 
 Thanks.
+
